@@ -3,16 +3,36 @@ import NewsPage from './Pages/NewsPage';
 import SearchPage from './Pages/SearchPage';
 import SettingsPage from './Pages/SettingsPage';
 import FavoritePage from './Pages/FavoritePage';
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import NavBar from './components/NavBar';
-import { UserProvider } from './context/UserContext';
+
+import { UserContext } from './context/UserContext';
+import { useContext } from 'react';
 
 function App() {
 
+  const { theme } = useContext(UserContext);
+
+  const appStyle = {
+
+    backgroundColor:
+      theme === 'dark'
+        ?  '#333' 
+        : theme === 'daltonic'
+        ? '#F7FC64'
+        : '#fff', 
+    color: theme === 'dark' ? '#fff' : '#000',
+    minHeight: '100vh', // Ocupa al menos el alto de la ventana
+    width: '100vw',
+    margin: 0,
+    padding: 0
+  };
+
   return (
     <>
-    <UserProvider>
-      <div className="app">
+      <div className="app" style={appStyle}>
         <BrowserRouter>
           <NavBar/>
               <Routes>
@@ -31,7 +51,6 @@ function App() {
               </Routes>
           </BrowserRouter>
       </div>
-    </UserProvider>
     </>
   )
 }

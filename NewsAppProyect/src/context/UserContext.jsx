@@ -41,9 +41,19 @@ export const UserProvider = ({ children }) => {
     }
 
 
+
     const toggleTheme = () => {
-        setTheme((theme === 'light' ? 'dark' : 'light'));
-    }
+        
+        if (theme === 'light') {
+        setTheme('dark');
+
+        } else if (theme === 'dark') {
+        setTheme('daltonic');
+
+        } else {
+        setTheme('light');
+        }
+    };
 
     return (
         <UserContext.Provider
@@ -64,6 +74,5 @@ export const UserProvider = ({ children }) => {
         </UserContext.Provider>
     )
 }
-export default UserContext
 
 

@@ -11,7 +11,7 @@ function SearchBar({inputRef, onSearch}) {
       placeholder='Ingresa Tu Busqueda'
 
       />
-    <Button onClick={onSearch}>
+    <Button variant="contained" onClick={onSearch}>
       Buscar
     </Button>
 

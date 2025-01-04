@@ -8,6 +8,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActionArea from '@mui/material/CardActionArea';
 import Box from '@mui/material/Box';
+
 function SearchPage() {
 
   const {articles, searchNews } = useContext(UserContext);
