@@ -10,11 +10,12 @@ export const UserProvider = ({ children }) => {
     const [userName, setUserName] = useState('user')
     const [articles, setArticles] = useState([]);
     const [page, setPage] = useState(1);
+    const [backgroundImage, setBackgroundImage] = useState('');
 
     const fetchNews = async () => { //TRAER TODAS LAS NOTICIAS
         try {
             const apiKey = 'ce334ec0c68547058139ae8ea0792622'; // Reemplaza con tu clave de la News API
-            let url = `https://newsapi.org/v2/top-headlines?country=us&page=${page}&pageSize=6&apiKey=${apiKey}`;
+            let url = `https://newsapi.org/v2/top-headlines?country=us&page=${page}&pageSize=5&apiKey=${apiKey}`;
 
             const response = await fetch(url);
             const data = await response.json();
@@ -67,7 +68,9 @@ export const UserProvider = ({ children }) => {
                 fetchNews,
                 page,
                 setPage,
-                searchNews
+                searchNews,
+                backgroundImage,
+                setBackgroundImage
             }}
         >
             {children}

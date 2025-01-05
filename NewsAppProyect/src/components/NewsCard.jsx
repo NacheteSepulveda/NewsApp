@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -6,10 +6,19 @@ import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
+import { UserContext } from '../context/UserContext';
 
 
 function NewsCard({ article }) {
   const { title, description, url, urlToImage } = article;
+
+  const {theme} = useContext(UserContext);
+
+  const textColorTitle = theme === 'dark' ? '#00000a' : theme === 'daltonic' ? '#D81B60' : '#000';
+
+  const textColorDesc = theme === 'dark' ? '#00000a' : theme === 'daltonic' ? '#004D40' : '#000';
+
+  const textColorUrl = theme === 'dark' ? '#4b77dc' : theme === 'daltonic' ? '#4B0092' : '#000';
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -31,17 +40,17 @@ function NewsCard({ article }) {
             
             <CardContent>
               {/* Título */}
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography style={{ color: textColorTitle }} gutterBottom variant="h5" component="div">
                 {title || 'Título no disponible'}
               </Typography>
 
               {/* Descripción */}
-              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+              <Typography style={{ color: textColorDesc }} variant="body2" sx={{ color: 'text.secondary' }}>
                 {description || 'Descripción no disponible'}
               </Typography>
               
               {/* url */}
-              <Typography variant="h8" color='secondary'>
+              <Typography style={{ color: textColorUrl }} variant="h8" color='secondary'>
                 {url || 'No existe url'}
               </Typography>
 

@@ -14,20 +14,30 @@ import { useContext } from 'react';
 function App() {
 
   const { theme } = useContext(UserContext);
+  const { backgroundImage } = useContext(UserContext);
 
   const appStyle = {
 
+    backgroundImage:
+      theme === 'dark'
+        ? `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://previews.123rf.com/images/4zevar/4zevar1603/4zevar160300133/54964312-icono-de-noticias-icono-de-la-página-web.jpg')`
+        : theme === 'daltonic'
+        ? `linear-gradient(rgba(247, 252, 100, 0.7), rgba(247, 252, 100, 0.7)), url('https://previews.123rf.com/images/4zevar/4zevar1603/4zevar160300133/54964312-icono-de-noticias-icono-de-la-página-web.jpg')`
+        : `linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('https://previews.123rf.com/images/4zevar/4zevar1603/4zevar160300133/54964312-icono-de-noticias-icono-de-la-página-web.jpg')`,
+
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme === 'dark'
         ?  '#333' 
         : theme === 'daltonic'
         ? '#F7FC64'
-        : '#fff', 
-    color: theme === 'dark' ? '#fff' : '#000',
+        : '#fff',
     minHeight: '100vh', // Ocupa al menos el alto de la ventana
     width: '100vw',
     margin: 0,
-    padding: 0
+    padding: 0,
   };
 
   return (

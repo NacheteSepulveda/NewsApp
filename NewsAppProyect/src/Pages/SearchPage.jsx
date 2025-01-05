@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 
 function SearchPage() {
 
-  const {articles, searchNews } = useContext(UserContext);
+  const {articles, searchNews, theme } = useContext(UserContext);
   const inputRef = useRef(null);
 
   const handleSearch = () => {
@@ -21,6 +21,13 @@ function SearchPage() {
     if (!inputValue) return
     searchNews(inputValue);
   };
+
+  const textColorTitle = theme === 'dark' ? '#00000a' : theme === 'daltonic' ? '#D81B60' : '#000';
+
+  const textColorDesc = theme === 'dark' ? '#00000a' : theme === 'daltonic' ? '#004D40' : '#000';
+
+  const textColorUrl = theme === 'dark' ? '#00000a' : theme === 'daltonic' ? '#4B0092' : '#000';
+
 
   return (
     <div>
@@ -60,16 +67,16 @@ function SearchPage() {
 
               {/* Contenido de la noticia */}
               <CardContent>
-                <Typography variant="h5" color="primary">
+                <Typography style={{color: textColorTitle}} variant="h5" color="primary">
                   {article.title || 'Sin título'}
                 </Typography>
 
-                <Typography variant="body1" color="secondary" sx={{ marginTop: 1 }}>
+                <Typography style={{color: textColorDesc}} variant="body1" color="secondary" sx={{ marginTop: 1 }}>
                   {article.description || 'Sin descripción'}
                 </Typography>
 
                 {/* Link opcional con NavLink */}
-                <Typography variant="body2" sx={{ marginTop: 1 }}>
+                <Typography style={{color: textColorUrl}} variant="body2" sx={{ marginTop: 1 }}>
                   <NavLink
                     to={article.url || '#'}
                     style={{ textDecoration: 'none', color: 'blue' }}

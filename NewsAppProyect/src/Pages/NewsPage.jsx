@@ -5,7 +5,7 @@ import { UserContext } from '../context/UserContext';
 
 function NewsPage() {
 
-    const { articles, page, setPage, fetchNews } = useContext(UserContext);
+    const { articles, page, setPage, fetchNews, theme } = useContext(UserContext);
 
 
     useEffect(() => {
@@ -14,24 +14,37 @@ function NewsPage() {
 
 
 
+
   return (
     <div>
             <Typography variant='h2' color='primary'>Estas Son Tus Noticias</Typography>
 
-            <div className="pagination">
+            <div className="pagination"
+            style={{display: 'flex',       
+                    justifyContent: 'center', 
+                    alignItems: 'center'}}>
+                    
                 <button disabled={page === 1} onClick={() => setPage(page - 1)}>Anterior</button>
-                <button onClick={() => setPage(page + 1)} disabled={page === 6}>Siguiente</button>
+                <button onClick={() => setPage(page + 1)} disabled={page === 8}>Siguiente</button>
+                
             </div>
 
             <div className="news-container">
                 {articles.map((article, index) => (
-                    <NewsCard key={index} article={article} />
+                    <NewsCard key={index} article={article}>
+
+                    </NewsCard>
                 ))}
             </div>
             
-            <div className="pagination">
+            <div className="pagination"
+            style={{display: 'flex',       
+                    justifyContent: 'center', 
+                    alignItems: 'center'}}>
+
                 <button disabled={page === 1} onClick={() => setPage(page - 1)}>Anterior</button>
-                <button onClick={() => setPage(page + 1)} disabled={page === 6}>Siguiente</button>
+                <button onClick={() => setPage(page + 1)} disabled={page === 8}>Siguiente</button>
+
             </div>
     </div>
   )
