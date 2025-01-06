@@ -2,7 +2,7 @@ import React from 'react'
 import NewsPage from './Pages/NewsPage';
 import SearchPage from './Pages/SearchPage';
 import SettingsPage from './Pages/SettingsPage';
-import FavoritePage from './Pages/FavoritePage';
+import WelcomePage from './Pages/WelcomePage';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -10,6 +10,7 @@ import NavBar from './components/NavBar';
 
 import { UserContext } from './context/UserContext';
 import { useContext } from 'react';
+import { Typography, Box } from '@mui/material';
 
 function App() {
 
@@ -45,7 +46,12 @@ function App() {
       <div className="app" style={appStyle}>
         <BrowserRouter>
           <NavBar/>
+          
               <Routes>
+
+                {/* Bienvenida */}
+                <Route path="/" element={<WelcomePage />} /> 
+
                 {/* PAGINA PRINCIPAL */}
                 <Route path='/news' element={<NewsPage />}/>
 
@@ -55,8 +61,7 @@ function App() {
                 {/* RUTA DE SETTINGS */}
                 <Route path='/settings' element={<SettingsPage />}/>
 
-                {/* RUTA DE FAVORITOS */}
-                <Route path='/favorites' element={<FavoritePage />}/>
+                
 
               </Routes>
           </BrowserRouter>

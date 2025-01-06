@@ -14,7 +14,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+
+import WelcomePage from '../Pages/WelcomePage';
 
 const drawerWidth = 240;
 
@@ -23,7 +25,6 @@ const navItems = [
   { label: 'Noticias', path: '/news' },
   { label: 'Buscar', path: '/search' },
   { label: 'Configuración', path: '/settings' },
-  { label: 'Favoritos', path: '/favorites' },
 ];
 
 function NavBar(props) {
@@ -68,13 +69,16 @@ function NavBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
+
+          <Button
             variant="h6"
-            component="div"
+            component={Link}
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            to="/"
           >
             Bienvenido!
-          </Typography>
+          </Button>
+
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button

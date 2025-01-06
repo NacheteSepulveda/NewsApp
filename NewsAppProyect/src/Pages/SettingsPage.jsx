@@ -22,7 +22,6 @@ function SettingsPage() {
         minHeight: '100vh',
       }}
     >
-      {/* Configuración en la esquina superior izquierda */}
       <Typography
         variant="h3"
         style={{
@@ -33,7 +32,6 @@ function SettingsPage() {
         Seleccione Su Color
       </Typography>
 
-      {/* Color Actual y Botón en la esquina superior derecha */}
       <Box
         sx={{
           display: 'flex',

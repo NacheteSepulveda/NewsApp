@@ -31,9 +31,7 @@ function NewsPage() {
 
             <div className="news-container">
                 {articles.map((article, index) => (
-                    <NewsCard key={index} article={article}>
-
-                    </NewsCard>
+                    <NewsCard key={index} article={article}/>
                 ))}
             </div>
             

@@ -75,7 +75,7 @@ function SearchPage() {
                   {article.description || 'Sin descripción'}
                 </Typography>
 
-                {/* Link opcional con NavLink */}
+                {/* Link */}
                 <Typography style={{color: textColorUrl}} variant="body2" sx={{ marginTop: 1 }}>
                   <NavLink
                     to={article.url || '#'}
