@@ -18,7 +18,7 @@ function NewsCard({ article }) {
 
   const textColorDesc = theme === 'dark' ? '#00000a' : theme === 'daltonic' ? '#004D40' : '#000';
 
-  const textColorUrl = theme === 'dark' ? '#4b77dc' : theme === 'daltonic' ? '#4B0092' : '#000';
+  const textColorUrl = theme === 'light' ? '#4b77dc' : theme === 'dark' ? '#4b77dc' : theme === 'daltonic' ? '#4B0092' : '#000';
 
   return (
     <Box sx={{ width: '100%' }}>

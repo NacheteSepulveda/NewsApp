@@ -1,16 +1,21 @@
 import React from 'react'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { UserContext } from '../context/UserContext'
-import { Typography, FormControl, MenuItem, Select, InputLabel } from '@mui/material';
+import { Typography, TextField} from '@mui/material';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
 
 function SettingsPage() {
 
-  const {theme, toggleTheme} = useContext(UserContext);
+  const {theme, toggleTheme, userName, setUserName } = useContext(UserContext);
+  const [name, setName] = useState(userName);
 
   const textColor = theme === 'dark' ? '#fff' : theme === 'daltonic' ? '#004D40' : '#000';
+
+  const handleSave = () => {
+    setUserName(name);
+  };
 
   return (
     <Box
@@ -22,40 +27,30 @@ function SettingsPage() {
         minHeight: '100vh',
       }}
     >
-      <Typography
-        variant="h3"
-        style={{
-          color: textColor,
-          marginBottom: '1100px'
-        }}
-      >
-        Seleccione Su Color
-      </Typography>
+    <Box sx={{ flex: 1, textAlign: 'center' }}>
+        <Typography variant="h5" style={{ color: textColor, marginBottom: '10px' }}>
+          Como te Llamas?
+        </Typography>
+        <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          sx={{ marginBottom: 2 , color: 'white'}}
+        />
+        <br />
+        <Button variant="contained" onClick={handleSave}>
+          Guardar Nombre
+        </Button>
+      </Box>
 
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-end',
-        }}
-      >
-        <Typography
-          variant="h5"
-          style={{
-            color: textColor,
-            marginBottom: '30px',
-          }}
-        >
+      {/* Configuración de Tema */}
+      <Box sx={{ flex: 1, textAlign: 'center' }}>
+        <Typography variant="h5" style={{ color: textColor, marginBottom: '10px' }}>
+          Seleccione Su Color
+        </Typography>
+        <Typography variant="body1" style={{ color: textColor, marginBottom: '10px' }}>
           Color Actual: {theme}
         </Typography>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={toggleTheme}
-          style={{
-            marginBottom: '1130px',
-          }}
-        >
+        <Button variant="contained" color="secondary" onClick={toggleTheme}>
           Cambiar de Color (Blanco, Negro o Para Daltónicos)
         </Button>
       </Box>

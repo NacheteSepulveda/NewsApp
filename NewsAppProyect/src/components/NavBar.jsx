@@ -17,6 +17,8 @@ import Button from '@mui/material/Button';
 import { NavLink, Link } from 'react-router-dom';
 
 import WelcomePage from '../Pages/WelcomePage';
+import { UserContext } from '../context/UserContext';
+import { useContext } from 'react';
 
 const drawerWidth = 240;
 
@@ -27,6 +29,8 @@ const navItems = [
   { label: 'Configuración', path: '/settings' },
 ];
 
+
+
 function NavBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -34,6 +38,8 @@ function NavBar(props) {
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
+
+  const { userName } = useContext(UserContext);
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
@@ -76,7 +82,7 @@ function NavBar(props) {
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
             to="/"
           >
-            Bienvenido!
+            Bienvenido! {userName}
           </Button>
 
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>

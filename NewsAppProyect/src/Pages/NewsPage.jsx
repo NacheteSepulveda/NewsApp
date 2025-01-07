@@ -2,10 +2,11 @@ import { useEffect, useContext, useState } from 'react';
 import NewsCard from '../components/NewsCard';
 import { Typography } from '@mui/material';
 import { UserContext } from '../context/UserContext';
+import Grid from '@mui/material/Grid';
 
 function NewsPage() {
 
-    const { articles, page, setPage, fetchNews, theme } = useContext(UserContext);
+    const { articles, page, setPage, fetchNews} = useContext(UserContext);
 
 
     useEffect(() => {
@@ -29,11 +30,13 @@ function NewsPage() {
                 
             </div>
 
-            <div className="news-container">
+            <Grid container spacing={1} columns={{ xs: 4, sm: 8, md: 12 }}>
                 {articles.map((article, index) => (
-                    <NewsCard key={index} article={article}/>
-                ))}
-            </div>
+                    <Grid item xs={2} sm={4} md={4} key={index}>
+                        <NewsCard article={article} />
+                    </Grid>
+        ))}
+            </Grid>
             
             <div className="pagination"
             style={{display: 'flex',       
