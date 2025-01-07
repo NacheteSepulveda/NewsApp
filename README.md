@@ -16,7 +16,9 @@ Con estos 4 sencillos pasos ya tendremos instalado y disponible para utilizar to
 
 B. INSTALACIÓN DE DEPENDENCIAS:
   1. Clonar repositorio desde visual studio code
-  2. Desde la terminal del repositorio ingresar los siguientes comandos:
+  2. Desde la terminal del repositorio ingresar los siguientes comandos (EN ORDEN):
+      * Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+      * Get-ExecutionPolicy -Scope CurrentUser
       * npm install
       * npm i
       * npm install react-router-dom
