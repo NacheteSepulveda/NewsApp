@@ -19,7 +19,7 @@ function WelcomePage() {
         ¡Bienvenido a NewsApp!
       </Typography>
       <Typography variant="h6" color="text.secondary" sx={{ marginBottom: 4 }}>
-        Explora las últimas noticias, busca temas de interés, y guarda tus favoritas.
+        Explora las últimas noticias, busca temas de interés, entérate de todo.
       </Typography>
       <Button
         variant="contained"
