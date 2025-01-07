@@ -11,7 +11,8 @@ A. INSTALACIÓN DE NODE.JS Y NPM:
 
 
 Con estos 4 sencillos pasos ya tendremos instalado y disponible para utilizar todo el potencial de Node.js junto con el instalador de paquetes NPM.
-br
+
+
 
 B. INSTALACIÓN DE DEPENDENCIAS:
   1. Clonar repositorio desde visual studio code
@@ -22,6 +23,8 @@ B. INSTALACIÓN DE DEPENDENCIAS:
       * npm install @mui/material @emotion/react @emotion/styled
       * npm install @mui/icons-material
 
+
+
 C. HOOKS UTILIZADOS:
   Durante el desarrollo se utilizaron los hooks aprendidos durante las clases, como lo son:
     * useState: Hook para almacenar el estado de una variable, por ejemplo: que sea null, '' o []
@@ -29,8 +32,12 @@ C. HOOKS UTILIZADOS:
     * useRef: Referencia un valor que no necesita renderizarse, en este caso, es utilizado dentro del SearchPage para buscar una serie de noticias por palabra clave
     * useContext: Maneja variables y funciones globales.
 
+    
+
 D. EJECUCION DEL PROYECTO:
   Dentro de la terminal dirigirse a la ubicación del repositorio y escribir el siguiente comando: npm run dev
+
+  
 
 E. RESUMEN DE FUNCIONALIDADES:
   Mi aplicación consta de 3 páginas, las cuales son:
