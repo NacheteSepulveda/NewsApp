@@ -11,6 +11,7 @@ A. INSTALACIÓN DE NODE.JS Y NPM:
 
 
 Con estos 4 sencillos pasos ya tendremos instalado y disponible para utilizar todo el potencial de Node.js junto con el instalador de paquetes NPM.
+br
 
 B. INSTALACIÓN DE DEPENDENCIAS:
   1. Clonar repositorio desde visual studio code
