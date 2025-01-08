@@ -11,11 +11,13 @@ export const UserProvider = ({ children }) => {
     const [articles, setArticles] = useState([]);
     const [page, setPage] = useState(1);
     const [backgroundImage, setBackgroundImage] = useState('');
+    const [category, setCategory] = useState('general');
 
-    const fetchNews = async () => { //TRAER TODAS LAS NOTICIAS
+
+    const fetchNews = async () => { //TRAER TODAS LAS NOTICIAS, TAMBIEN POR CATEGORÍA
         try {
             const apiKey = 'ce334ec0c68547058139ae8ea0792622'; // Reemplaza con tu clave de la News API
-            let url = `https://newsapi.org/v2/top-headlines?country=us&page=${page}&pageSize=5&apiKey=${apiKey}`;
+            let url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&page=${page}&pageSize=5&apiKey=${apiKey}`;
 
             const response = await fetch(url);
             const data = await response.json();
@@ -40,7 +42,6 @@ export const UserProvider = ({ children }) => {
             console.error('Error al buscar:', error);
         }
     }
-
 
 
     const toggleTheme = () => {
@@ -70,7 +71,9 @@ export const UserProvider = ({ children }) => {
                 setPage,
                 searchNews,
                 backgroundImage,
-                setBackgroundImage
+                setBackgroundImage,
+                category,
+                setCategory
             }}
         >
             {children}

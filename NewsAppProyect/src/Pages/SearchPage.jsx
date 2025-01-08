@@ -9,11 +9,13 @@ import CardContent from '@mui/material/CardContent';
 import CardActionArea from '@mui/material/CardActionArea';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import Pagination from '@mui/material/Pagination';
 
 function SearchPage() {
 
-  const {articles, searchNews, theme } = useContext(UserContext);
+  const {articles, searchNews, theme, page, setPage } = useContext(UserContext);
   const inputRef = useRef(null);
+  const itemsPerPage = 5;
 
   const handleSearch = () => {
     const inputValue = inputRef.current.value;
@@ -22,6 +24,13 @@ function SearchPage() {
     if (!inputValue) return
     searchNews(inputValue);
   };
+
+  const handlePageChange = (event, value) => {
+    setPage(value);
+  };
+
+  const startPagination = (page - 1) * itemsPerPage;
+  const paginatedArticles = articles.slice(startPagination, startPagination + itemsPerPage);
 
   const textColorTitle = theme === 'dark' ? '#00000a' : theme === 'daltonic' ? '#D81B60' : '#000';
 
@@ -45,10 +54,19 @@ function SearchPage() {
       >
         <SearchBar inputRef={inputRef} onSearch={handleSearch} />
       </Box>
+      
+      <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: 4 }}>
+        <Pagination
+          count={Math.ceil(articles.length / itemsPerPage)} // Total de páginas
+          page={page}
+          onChange={handlePageChange}
+          color="primary"
+        />
+      </Box>
 
       <div style={{ marginTop: '20px' }}>
       <Grid container spacing={3}>
-        {articles.map((article, index) => (
+        {paginatedArticles.map((article, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <Card sx={{ maxWidth: 345, margin: 'auto' }}>
               <CardActionArea component="a" href={article.url} target="_blank">
@@ -85,6 +103,14 @@ function SearchPage() {
           </Grid>
         ))}
         </Grid>
+          <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: 4 }}>
+            <Pagination
+              count={Math.ceil(articles.length / itemsPerPage)} // Total de páginas
+              page={page}
+              onChange={handlePageChange}
+              color="primary"
+            />
+        </Box>
       </div>
     </div>
   );
