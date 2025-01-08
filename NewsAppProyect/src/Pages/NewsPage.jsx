@@ -19,7 +19,6 @@ function NewsPage() {
       
     const handleCategoryChange = (category) => {
         setCategory(category); 
-        setPage(1); 
     };
 
     const categories = [
