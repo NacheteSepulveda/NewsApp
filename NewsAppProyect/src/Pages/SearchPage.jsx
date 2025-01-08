@@ -60,7 +60,8 @@ function SearchPage() {
           count={Math.ceil(articles.length / itemsPerPage)} // Total de páginas
           page={page}
           onChange={handlePageChange}
-          color="primary"
+          color="secondary"
+
         />
       </Box>
 
