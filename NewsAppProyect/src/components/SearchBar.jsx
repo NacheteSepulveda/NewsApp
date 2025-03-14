@@ -12,7 +12,7 @@ function SearchBar({inputRef, onSearch}) {
 
       />
     <Button variant="contained" onClick={onSearch}>
-      Buscar
+      Buscar Noticia
     </Button>
 
     </div>
